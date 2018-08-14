@@ -18,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class Config {
 
     @Bean
-    @ConfigurationProperties("dailyDir")
+    @ConfigurationProperties("daily-dir")
     public DailyDirProps dailyDirProps() {
         return defaultDailyDirProps();
     }
@@ -30,11 +30,11 @@ public class Config {
         props.setRemoveFromFavorites(true);
         props.setRemoveFromFavoritesDays(3);
         props.setCreateDailyDir(true);
+        props.setDailyDirFormat("M-dd-yyyy");
         props.setRemoveOldDailyDirs(true);
         props.setRemoveOldDailyDirsDays(3);
         props.setRunCron(true);
         props.setCron("* * * * * *");
-
 
         return props;
     }

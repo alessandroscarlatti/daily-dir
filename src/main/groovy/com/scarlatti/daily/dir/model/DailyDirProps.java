@@ -13,12 +13,31 @@ public class DailyDirProps {
     private boolean removeFromFavorites;
     private int removeFromFavoritesDays;
     private boolean createDailyDir;
+    private String dailyDirFormat;
     private boolean removeOldDailyDirs;
     private int removeOldDailyDirsDays;
     private boolean runCron;
     private String cron;
     private String parentDir;
     private String favoritesDir;
+
+    @Override
+    public String toString() {
+        return "DailyDirProps{" +
+            "runOnStartup=" + runOnStartup +
+            ", addToFavorites=" + addToFavorites +
+            ", removeFromFavorites=" + removeFromFavorites +
+            ", removeFromFavoritesDays=" + removeFromFavoritesDays +
+            ", createDailyDir=" + createDailyDir +
+            ", dailyDirFormat='" + dailyDirFormat + '\'' +
+            ", removeOldDailyDirs=" + removeOldDailyDirs +
+            ", removeOldDailyDirsDays=" + removeOldDailyDirsDays +
+            ", runCron=" + runCron +
+            ", cron='" + cron + '\'' +
+            ", parentDir='" + parentDir + '\'' +
+            ", favoritesDir='" + favoritesDir + '\'' +
+            '}';
+    }
 
     public boolean getRunOnStartup() {
         return runOnStartup;
@@ -106,5 +125,13 @@ public class DailyDirProps {
 
     public void setFavoritesDir(String favoritesDir) {
         this.favoritesDir = favoritesDir;
+    }
+
+    public String getDailyDirFormat() {
+        return dailyDirFormat;
+    }
+
+    public void setDailyDirFormat(String dailyDirFormat) {
+        this.dailyDirFormat = dailyDirFormat;
     }
 }

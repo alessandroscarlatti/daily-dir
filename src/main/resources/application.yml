@@ -1,12 +1,12 @@
-dailyDir:
+daily-dir:
   runOnStartup: true
   addToFavorites: true
   removeFromFavorites: true
   createDailyDir: true
   removeOldDailyDirs: true
   removeOldDailyDirsDays: 3
-  dailyDirFormat: "mm-dd-yyyy"
+  dailyDirFormat: "M-dd-yyyy"
   useCron: true
   cron: "* * * * * *"
-  parentDir: "C:/Users/Desktop"
-  favoritesDir: "C:/Users/Favorites"
+  parentDir: "build/sandbox/daily-dir"
+  favoritesDir: "build/sandbox/favorites"

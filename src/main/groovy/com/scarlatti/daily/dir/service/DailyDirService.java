@@ -2,6 +2,8 @@ package com.scarlatti.daily.dir.service;
 
 import com.scarlatti.daily.dir.factory.ProcessManagerFactory;
 import com.scarlatti.daily.dir.model.DailyDirProps;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,6 +18,7 @@ public class DailyDirService {
 
     private ProcessManagerFactory factory;
     private DailyDirProps props;
+    private static final Logger log = LoggerFactory.getLogger(DailyDirService.class);
 
     public DailyDirService(ProcessManagerFactory factory, DailyDirProps props) {
         this.factory = factory;
@@ -32,6 +35,8 @@ public class DailyDirService {
      * - remove any previous daily dirs that are empty (within a configurable timespan)
      */
     public void executeDailyDirProcess() {
+        log.info("Executing DailyDir process with props: " + props);
+
         if (props.getCreateDailyDir())
             createDailyDir();
 
@@ -43,6 +48,8 @@ public class DailyDirService {
 
         if (props.getRemoveFromFavorites())
             removeOldFavorites();
+
+        log.info("Daily dir process complete.");
     }
 
     public void createDailyDir() {

@@ -31,7 +31,7 @@ public class DailyDirScheduler implements CommandLineRunner {
         }
     }
 
-    @Scheduled(cron = "${dailyDir.cron}")
+    @Scheduled(cron = "${daily-dir.cron}")
     public void invokeDailyDirProcess() {
         processManager.executeDailyDirProcess();
     }
