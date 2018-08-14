@@ -1,7 +1,7 @@
-package com.scarlatti.daily.dir;
+package com.scarlatti.daily.dir.schedule;
 
 import com.scarlatti.daily.dir.model.DailyDirProps;
-import com.scarlatti.daily.dir.process.DailyDirProcessManager;
+import com.scarlatti.daily.dir.service.DailyDirService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -17,9 +17,9 @@ import org.springframework.stereotype.Component;
 public class DailyDirScheduler implements CommandLineRunner {
 
     private DailyDirProps props;
-    private DailyDirProcessManager processManager;
+    private DailyDirService processManager;
 
-    public DailyDirScheduler(DailyDirProps props, DailyDirProcessManager processManager) {
+    public DailyDirScheduler(DailyDirProps props, DailyDirService processManager) {
         this.props = props;
         this.processManager = processManager;
     }

@@ -1,4 +1,4 @@
-package com.scarlatti.daily.dir;
+package com.scarlatti.daily.dir.config;
 
 import com.scarlatti.daily.dir.model.DailyDirProps;
 import org.springframework.boot.context.properties.ConfigurationProperties;

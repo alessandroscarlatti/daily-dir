@@ -1,4 +1,4 @@
-package com.scarlatti.daily.dir.process;
+package com.scarlatti.daily.dir.service;
 
 import com.scarlatti.daily.dir.factory.ProcessManagerFactory;
 import com.scarlatti.daily.dir.model.DailyDirProps;
@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
  * Monday, 8/13/2018
  */
 @Component
-public class DailyDirProcessManager {
+public class DailyDirService {
 
     private ProcessManagerFactory factory;
     private DailyDirProps props;
 
-    public DailyDirProcessManager(ProcessManagerFactory factory, DailyDirProps props) {
+    public DailyDirService(ProcessManagerFactory factory, DailyDirProps props) {
         this.factory = factory;
         this.props = props;
     }
