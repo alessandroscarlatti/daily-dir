@@ -1,0 +1,12 @@
+dailyDir:
+  runOnStartup: true
+  addToFavorites: true
+  removeFromFavorites: true
+  createDailyDir: true
+  removeOldDailyDirs: true
+  removeOldDailyDirsDays: 3
+  dailyDirFormat: "mm-dd-yyyy"
+  useCron: true
+  cron: "* * * * * *"
+  parentDir: "C:/Users/Desktop"
+  favoritesDir: "C:/Users/Favorites"
