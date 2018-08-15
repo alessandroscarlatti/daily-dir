@@ -44,7 +44,7 @@ public abstract class SimpleRemoveOldDirsProcessManager extends AbstractRemoveOl
 
         try (DirectoryStream<Path> parentDir = Files.newDirectoryStream(searchDir())) {
             for (Path dir : parentDir) {
-                if (matchesPattern(dir) && withinAge(dir))
+                if (dirQualifies(dir))
                     paths.add(dir);
             }
         } catch (Exception e) {
