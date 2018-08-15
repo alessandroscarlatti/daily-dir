@@ -1,6 +1,12 @@
 package com.scarlatti.daily.dir.process;
 
 import com.scarlatti.daily.dir.model.DailyDirProps;
+import com.scarlatti.daily.dir.util.NewDirUtil;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * ______    __                         __           ____             __     __  __  _
@@ -12,13 +18,30 @@ import com.scarlatti.daily.dir.model.DailyDirProps;
 public class AddToFavoritesProcessManager implements Runnable {
 
     private DailyDirProps props;
+    private NewDirUtil newDirUtil;
+    private Path newDir;
+    private Path favoritesLink;
 
     public AddToFavoritesProcessManager(DailyDirProps props) {
         this.props = props;
+        newDirUtil = new NewDirUtil(props);
     }
 
     @Override
     public void run() {
+        // make a link to the new daily dir
+        newDir = newDirUtil.newDirPath().toAbsolutePath();
+        favoritesLink = Paths.get(props.getFavoritesDir(), newDir.getFileName().toString()).toAbsolutePath();
 
+        try {
+            if (!Files.exists(favoritesLink))
+                Files.createSymbolicLink(favoritesLink, newDir);
+        } catch (Exception e) {
+            throw new RuntimeException("Error creating favorites link " + favoritesLink, e);
+        }
+    }
+
+    private String mkLinkCommand() {
+        return String.format("mklink /D %s %s", favoritesLink, newDir);
     }
 }

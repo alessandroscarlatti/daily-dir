@@ -1,18 +1,18 @@
-package com.scarlatti.daily.dir
+package com.scarlatti.daily.dir.util;
 
-import org.junit.Test
+import com.scarlatti.daily.dir.model.DailyDirProps;
 
 /**
  * ______    __                         __           ____             __     __  __  _
  * ___/ _ | / /__ ___ ___ ___ ____  ___/ /______    / __/______ _____/ /__ _/ /_/ /_(_)
  * __/ __ |/ / -_|_-<(_-</ _ `/ _ \/ _  / __/ _ \  _\ \/ __/ _ `/ __/ / _ `/ __/ __/ /
  * /_/ |_/_/\__/___/___/\_,_/_//_/\_,_/_/  \___/ /___/\__/\_,_/_/ /_/\_,_/\__/\__/_/
- * Saturday, 6/9/2018
+ * Tuesday, 8/14/2018
  */
-class DailyDirMainTest {
+public class FindMatchinDirsUtil {
+    private DailyDirProps props;
 
-    @Test
-    public void appTest() {
-        println "appTest"
+    public FindMatchinDirsUtil(DailyDirProps props) {
+        this.props = props;
     }
 }

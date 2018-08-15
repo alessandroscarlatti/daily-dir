@@ -2,6 +2,8 @@ package com.scarlatti.daily.dir.schedule;
 
 import com.scarlatti.daily.dir.model.DailyDirProps;
 import com.scarlatti.daily.dir.service.DailyDirService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,7 @@ public class DailyDirScheduler implements CommandLineRunner {
 
     private DailyDirProps props;
     private DailyDirService processManager;
+    private static final Logger log = LoggerFactory.getLogger(DailyDirScheduler.class);
 
     public DailyDirScheduler(DailyDirProps props, DailyDirService processManager) {
         this.props = props;
@@ -33,6 +36,10 @@ public class DailyDirScheduler implements CommandLineRunner {
 
     @Scheduled(cron = "${daily-dir.cron}")
     public void invokeDailyDirProcess() {
-        processManager.executeDailyDirProcess();
+        try {
+            processManager.executeDailyDirProcess();
+        } catch (Exception e) {
+            log.error("Error excuting daily dir process.", e);
+        }
     }
 }
